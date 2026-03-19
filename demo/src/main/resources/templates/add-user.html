@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+<div class="bg-white p-8 rounded-2xl shadow-lg w-96">
+
+    <h2 class="text-2xl font-bold text-center mb-6 text-indigo-600">Add User</h2>
+
+    <form th:action="@{/adduser}" th:object="${user}" method="post" class="space-y-4">
+
+        <div>
+            <input type="text" th:field="*{name}" placeholder="Name" required
+                   class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none">
+            <p th:errors="*{name}" class="text-red-500 text-sm"></p>
+        </div>
+
+        <div>
+            <input type="email" th:field="*{email}" placeholder="Email" required
+                   class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none">
+            <p th:errors="*{email}" class="text-red-500 text-sm"></p>
+        </div>
+
+        <button type="submit"
+                class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition">
+            Add User
+        </button>
+
+    </form>
+
+    <a href="/" class="block text-center mt-4 text-sm text-gray-500 hover:text-indigo-600">
+        ← Back to Home
+    </a>
+
+</div>
+
+</body>
+</html>

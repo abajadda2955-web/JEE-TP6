@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen p-8">
+
+<div class="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow-lg">
+
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-700">User Management</h2>
+
+        <a href="/signup"
+           class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">
+            + Add User
+        </a>
+    </div>
+
+    <div th:switch="${users}">
+
+        <p th:case="null" class="text-gray-500 text-center py-6">
+            No users yet
+        </p>
+
+        <table th:case="*" class="w-full border rounded-lg overflow-hidden">
+
+            <thead class="bg-indigo-600 text-white">
+            <tr>
+                <th class="p-3 text-left">Name</th>
+                <th class="p-3 text-left">Email</th>
+                <th class="p-3">Edit</th>
+                <th class="p-3">Delete</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="user : ${users}" class="border-b hover:bg-gray-50">
+
+                <td class="p-3" th:text="${user.name}"></td>
+                <td class="p-3" th:text="${user.email}"></td>
+
+                <td class="p-3 text-center">
+                    <a th:href="@{/edit/{id}(id=${user.id})}"
+                       class="text-blue-600 hover:underline">
+                        Edit
+                    </a>
+                </td>
+
+                <td class="p-3 text-center">
+                    <a th:href="@{/delete/{id}(id=${user.id})}"
+                       class="text-red-600 hover:underline">
+                        Delete
+                    </a>
+                </td>
+
+            </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>
