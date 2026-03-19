@@ -46,18 +46,7 @@ L’application permet de :
 ✏️ Modifier un utilisateur
 
 <img width="404" height="315" alt="update" src="https://github.com/user-attachments/assets/83cafcb1-25c3-452c-b62e-bd85eb0bcbb5" />
----
-##📂 Structure du projet
-src
- └── main
-     ├── java
-     │   └── ma.example.demo
-     │       ├── controller
-     │       ├── entity
-     │       └── repository
-     └── resources
-         ├── templates
-         └── application.properties
+
    ---      
 ## Fonctionnalités
 
